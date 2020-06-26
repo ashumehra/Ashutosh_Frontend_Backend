@@ -1,0 +1,22 @@
+<div class="jumbotron container" style="width: 50%; margin-top: 25px;">
+    <h4 class="display-4">Visualize Motion</h4>
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name" >Height</label>
+            <input type="number" class="form-control" [(ngModel)]= "height" name="height">
+        </div>
+        <div class="form-group ">
+            <label for="location" >coefficient</label>
+            <input type="range" class="form-control custom-range" [(ngModel)]="coefficient" name="coefficient" min="0" max="1" step="0.1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div *ngIf="bounces" style="margin-top: 10%;">
+        <div class="alert alert-info" role="alert"> Bounces : {{bounces}}</div>
+    </div>
+</div>
+
+<div *ngIf="chart" width="50%" height="50%">
+    <canvas id="canvas">{{chart}}</canvas>
+</div>
+
